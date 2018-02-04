@@ -1,0 +1,19 @@
+service: mydocs
+
+provider:
+  name: aws
+  runtime: java8
+  stage: dev
+  region: us-west-1
+  timeout: 90
+
+package:
+  artifact: target/mydocs-dev.jar
+
+functions:
+  mydocs:
+    handler: com.serverless.Handler
+    events:
+      - s3:
+        bucket: mydocs-bucket
+        event: s3:ObjectCreated:*
