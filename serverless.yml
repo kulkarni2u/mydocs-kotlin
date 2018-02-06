@@ -12,7 +12,7 @@ package:
 
 functions:
   mydocs:
-    handler: com.serverless.Handler
+    handler: com.serverless.handler.AddPageHandler
     events:
       - s3:
         bucket: mydocs-bucket
